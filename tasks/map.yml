@@ -26,10 +26,10 @@
 
 - name: compute configuration
   set_fact:
-    hello_world: "{{ default.hello_world | default({}) | combine(
-      osfamilymap[ansible_os_family].hello_world is defined | ternary(osfamilymap[ansible_os_family].hello_world, {}),
-      distributionmap[ansible_distribution].hello_world is defined | ternary(distributionmap[ansible_distribution].hello_world, {}),
-      fingerprintmap[ansible_fingerprint].hello_world is defined | ternary(fingerprintmap[ansible_fingerprint].hello_world, {}),
-      hello_world | default({}),
+    sonarqube: "{{ default.sonarqube | default({}) | combine(
+      osfamilymap[ansible_os_family].sonarqube is defined | ternary(osfamilymap[ansible_os_family].sonarqube, {}),
+      distributionmap[ansible_distribution].sonarqube is defined | ternary(distributionmap[ansible_distribution].sonarqube, {}),
+      fingerprintmap[ansible_fingerprint].sonarqube is defined | ternary(fingerprintmap[ansible_fingerprint].sonarqube, {}),
+      sonarqube | default({}),
       recursive=True
       ) }}"
